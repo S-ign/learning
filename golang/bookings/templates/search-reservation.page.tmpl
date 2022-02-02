@@ -1,0 +1,56 @@
+{{template "base" .}}
+
+{{define "title"}}
+<title>Find Reservation</title>
+{{end}}
+
+{{define "css"}}
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/css/datepicker-bs4.min.css">
+{{end}}
+
+{{define "content"}}
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<h1 class="text-center">Find Availability</h1>
+		</div>
+	</div>
+
+	<form action="/search-reservation" method="post" class="needs-validation" novalidate>
+
+		<div class="row">
+			<div class="col">
+				<div id="reservation-dates" class="row">
+					<div class="col-md-3"></div>
+					<div class="col-md-3"><input required class="form-control" placeholder="Arival" type="text" name="start"></div>
+					<div class="col-md-3"><input required class="form-control" placeholder="Departure" type="text" name="end"></div>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-md-5"></div>
+			<div class="col-md-3">
+				<button type="submit" class="btn btn-outline-primary">Search Availability</button>
+			</div>
+		</div>
+	</form>
+
+</div>
+
+{{end}}
+
+{{define "js"}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/css/datepicker.min.css"><script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/js/datepicker-full.min.js"></script>
+<script src="/static/js/datepicker.js"></script>
+<script src="/static/js/form-validation.js"></script>
+
+	<!-- <script src="https://unpkg.com/notie"></script> -->
+<!-- <script src="/static/js/notie.js"></script> -->
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/static/js/sweetalert.js"></script>
+{{end}}

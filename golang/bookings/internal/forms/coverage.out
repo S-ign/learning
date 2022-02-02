@@ -1,0 +1,22 @@
+mode: set
+github.com/S-ign/bookings/internal/forms/errors.go:6.44,8.2 1 1
+github.com/S-ign/bookings/internal/forms/errors.go:11.42,13.18 2 1
+github.com/S-ign/bookings/internal/forms/errors.go:17.2,17.14 1 1
+github.com/S-ign/bookings/internal/forms/errors.go:13.18,15.3 1 1
+github.com/S-ign/bookings/internal/forms/forms.go:19.33,24.2 1 1
+github.com/S-ign/bookings/internal/forms/forms.go:27.39,29.13 2 1
+github.com/S-ign/bookings/internal/forms/forms.go:33.2,33.13 1 0
+github.com/S-ign/bookings/internal/forms/forms.go:29.13,31.3 1 1
+github.com/S-ign/bookings/internal/forms/forms.go:37.29,39.2 1 1
+github.com/S-ign/bookings/internal/forms/forms.go:42.43,43.31 1 1
+github.com/S-ign/bookings/internal/forms/forms.go:43.31,45.37 2 1
+github.com/S-ign/bookings/internal/forms/forms.go:45.37,47.4 1 1
+github.com/S-ign/bookings/internal/forms/forms.go:52.72,55.31 2 1
+github.com/S-ign/bookings/internal/forms/forms.go:68.2,68.20 1 1
+github.com/S-ign/bookings/internal/forms/forms.go:55.31,58.22 2 1
+github.com/S-ign/bookings/internal/forms/forms.go:58.22,62.24 3 1
+github.com/S-ign/bookings/internal/forms/forms.go:62.24,64.5 1 0
+github.com/S-ign/bookings/internal/forms/forms.go:72.38,73.40 1 1
+github.com/S-ign/bookings/internal/forms/forms.go:73.40,75.3 1 1
+github.com/S-ign/bookings/internal/forms/forms.go:79.44,81.16 2 1
+github.com/S-ign/bookings/internal/forms/forms.go:81.16,83.3 1 1

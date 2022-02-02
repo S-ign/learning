@@ -1,0 +1,84 @@
+package pathfinding
+
+import (
+	"fmt"
+
+	"github.com/S-ign/ffxigps/maps"
+)
+
+// FindPath returns the fastest path from startingLocation to destination
+func FindPath(startingZone string, destination string) []maps.FFXIZoneGetter {
+	// store the correct path to take to get from startingLocation to destination
+	connections := []maps.FFXIZoneGetter{}
+	finalPath := []maps.FFXIZoneGetter{}
+	ok := false
+
+	connections = getPaths(startingZone, destination, connections)
+	for {
+		for _, v := range connections {
+			if v.GetName() == startingZone {
+				fmt.Println("MADE IT!!")
+				finalPath = connections
+				ok = true
+			}
+		}
+		if ok {
+			break
+		} else {
+			connections = getPaths(startingZone, destination, connections)
+			fmt.Println(connections)
+		}
+	}
+
+	return finalPath
+}
+
+// Loads path with connections attached to the destination.  Each Index of
+// connectios will contain a list of the previous Indexes connections.
+func getPaths(startingZone string, destination string, connections []maps.FFXIZoneGetter) []maps.FFXIZoneGetter {
+	// Gets the connections of destination and stores the object version.
+	destinationConnectionObjects := []maps.FFXIZoneGetter{}
+	for _, v := range maps.Vanadiel[destination].GetConnections() {
+		destinationConnectionObjects = append(destinationConnectionObjects, maps.Vanadiel[v])
+	}
+
+	// loads the connections of the destination into path
+	// ex. destination = Valkurm Dunes
+	// connections = [selbina, konschtat highlands, la theine Plateau]
+	connections = connectionChain(destinationConnectionObjects, destination)
+
+	// loads the connections of all previous (destination connections) into path
+	// destination connections = [selbina, konschtat highlands, la theine
+	// Plateau] connection of connection = [Valkurm Dunes, Gusgen Mines,
+	// Gustaburg North, Pashlow Marshlands, Valkurm Dunes, Jugnar Forest,
+	// Runfaure West, Valkurm Dunes]
+	connections = removeDuplicateObjects(connectionChain(connections, destination))
+	return connections
+}
+
+// takes in a list of connections and returns a list of the connections for
+// those connections.
+func connectionChain(cc []maps.FFXIZoneGetter, destination string) []maps.FFXIZoneGetter {
+	newChain := []maps.FFXIZoneGetter{}
+	for _, mapObjects := range cc {
+		for _, mapObjectConnectionName := range mapObjects.GetConnections() {
+			if mapObjectConnectionName != mapObjects.GetName() && mapObjectConnectionName != destination {
+				newChain = append(newChain, maps.Vanadiel[mapObjectConnectionName])
+			}
+		}
+	}
+	return newChain
+}
+
+func removeDuplicateObjects(connections []maps.FFXIZoneGetter) []maps.FFXIZoneGetter {
+	newConnections := []maps.FFXIZoneGetter{}
+	for _, v := range connections {
+		for _, va := range newConnections {
+			if v.GetName() != va.GetName() {
+				fmt.Println("does anything ever happen here?")
+				newConnections = append(newConnections, v)
+			}
+		}
+	}
+	return newConnections
+}

@@ -1,0 +1,103 @@
+{{template "base" .}}
+
+{{define "title"}}
+<title>Make Reservation</title>
+{{end}}
+
+{{define "content"}}
+<div class="container">
+
+	{{$res := index .Data "reservation"}}
+
+	<div class="row">
+		<div class="col">
+			<h1 class="text-center">Make A Reservation</h1>
+		</div>
+	</div>
+
+	<form action="/make-reservation" method="post" class="" novalidate>
+		<input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
+
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-3">
+				<div class="form-group">
+					<label for="first_name">First Name</label>
+					{{with .Form.Errors.Get "first_name"}}
+						<label class="text-danger">{{.}}</label>
+					{{end}}
+					<input required type="text" class="form-control {{with .Form.Errors.Get "first_name"}} is-invalid {{end}}"
+																			id="first_name" name="first_name" value="{{$res.FirstName}}" required autocomplete="off">
+					<div class="valid-feedback">
+						Looks Good!
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-3">
+				<div class="col form-group">
+					<label for="last_name">Last Name</label>
+					{{with .Form.Errors.Get "last_name"}}
+						<label class="text-danger">{{.}}</label>
+					{{end}}
+					<input required type="text" class="form-control {{with .Form.Errors.Get "last_name"}} is-invalid {{end}}" 
+																			id="last_name" name="last_name" value="{{$res.LastName}}" required autocomplete="off">
+					<div class="valid-feedback">
+						Looks Good!
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-3">
+				<div class="form-group">
+					<label for="email">Email</label>
+					{{with .Form.Errors.Get "email"}}
+						<label class="text-danger">{{.}}</label>
+					{{end}}
+					<input required type="email" class="form-control {{with .Form.Errors.Get "email"}} is-invalid {{end}}"
+																			 id="email" name="email" value="{{$res.Email}}" required autocomplete="off">
+				</div>
+			</div>
+
+			<div class="col-md-3">
+				<div class="col form-group">
+					<label for="phone">Phone Number</label>
+					{{with .Form.Errors.Get "phone"}}
+						<label class="text-danger">{{.}}</label>
+					{{end}}
+					<input required type="text" placeholder="9999999999" class="form-control {{with .Form.Errors.Get "phone"}} is-invalid {{end}}"
+																			id="phone" name="phone" value="{{$res.Phone}}" required autocomplete="off">
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="start_date">Start Date</label>
+			<input type="teaxt" name="start_date" id="start_date" class="form-control">
+		</div>
+
+		<div class="form-group">
+			<label for="end_date">End Date</label>
+			<input type="teaxt" name="end_date" id="end_date" class="form-control">
+		</div>
+
+		<input type="hidden" name="room_id" value="1">
+
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-3">
+				<input type="submit" class="btn btn-primary" value="Make Reservation">
+			</div>
+		</div>
+	</form>
+
+</div>
+
+{{end}}
+
+{{define "js"}}
+<script src="/static/js/form-validation.js"></script>
+{{end}}

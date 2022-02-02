@@ -1,0 +1,54 @@
+{{template "base" .}}
+
+{{define "title"}}
+<title>Majors Suite</title>
+{{end}}
+
+{{define "css"}}
+{{end}}
+
+
+{{define "content"}}
+
+
+	<!-- <Container> -->
+	<div class="container">
+
+		<!-- <Major's Suite Image> -->
+		<div class="row">
+			<div class="col">
+				<img src="/static/images/marjors-suite.png" alt="majors suite" class="img-fluid rounded mx-auto d-block img-thumbnail room-img">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<h1 class="text-center" mt-4>Major's Suite</h1>
+				<p class="text-center">Your home away from home, set on the majestic waters of the atlantic ocean, this will be a vacation to remember</p>
+				<p class="text-center">Your home away from home, set on the majestic waters of the atlantic ocean, this will be a vacation to remember</p>
+				<p class="text-center">Your home away from home, set on the majestic waters of the atlantic ocean, this will be a vacation to remember</p>
+				<p class="text-center">Your home away from home, set on the majestic waters of the atlantic ocean, this will be a vacation to remember</p>
+				<p class="text-center">Your home away from home, set on the majestic waters of the atlantic ocean, this will be a vacation to remember</p>
+				<p class="text-center">Your home away from home, set on the majestic waters of the atlantic ocean, this will be a vacation to remember</p>
+			</div>
+		</div>
+	
+		<!-- <Reservation Button> -->
+		<div class="row">
+			<div class="col text-center">
+				<button class="btn btn-success reservation-now-datepicker">Make Reservtions Now</button>
+			</div>
+		</div>
+
+	</div>
+	<!-- <End of Container> -->
+
+{{end}}
+
+{{define "js"}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/css/datepicker.min.css"><script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/js/datepicker-full.min.js"></script>
+<script src="/static/js/datepicker.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/static/js/sweetalert.js"></script>
+<script src="/static/js/test.js"></script>
+{{end}}
