@@ -101,8 +101,6 @@ const NavMenu = styled.div`
 const UserImg = styled.img`
   display: flex;
   align-iems: center;
-  width: 40px;
-  height: 40px;
   border-radius: 50%;
   cursor: pointer;
   padding: 14px 0;
