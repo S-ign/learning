@@ -2,23 +2,27 @@ import React, {useState} from 'react'
 import styled from "styled-components";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import {selectCars} from '../features/car/carSlice';
+import {useSelector} from 'react-redux';
 
 
 function Header () {
   const [burgerStatus, setBurgerStatus] = useState(false);
+  const cars = useSelector(selectCars)
+  console.log(cars)
 
   return (
     <Container>
       <a><img src="/images/logo.svg" alt="" /></a>
       <Menu>
-        <a href="">Model S</a>
-        <a href="">Model 3</a>
-        <a href="">Model X</a>
-        <a href="">Model y</a>
+        <a href="#">Model S</a>
+        <a href="#">Model 3</a>
+        <a href="#">Model X</a>
+        <a href="#">Model y</a>
       </Menu>
       <RightMenu>
-        <a href="">Shop</a>
-        <a href="">Tesla Account</a>
+        <a href="#">Shop</a>
+        <a href="#">Tesla Account</a>
         <CustomMenu 
           onClick={()=>setBurgerStatus(true)}
         />
