@@ -1,0 +1,1 @@
+items.forEach((function(e){for(var n=e.nextElementSibling,i=1;i<4;i++){n||(n=items[0]);var l=n.cloneNode(!0);e.appendChild(l.children[0]),n=n.nextElementSibling}}));
