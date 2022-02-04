@@ -15,10 +15,9 @@ function Header () {
     <Container>
       <a><img src="/images/logo.svg" alt="" /></a>
       <Menu>
-        <a href="#">Model S</a>
-        <a href="#">Model 3</a>
-        <a href="#">Model X</a>
-        <a href="#">Model y</a>
+        {cars && cars.map((car,index)=>(
+          <a key={index} href="#">{car}</a>
+        ))}
       </Menu>
       <RightMenu>
         <a href="#">Shop</a>
