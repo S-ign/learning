@@ -9,26 +9,19 @@ function ImgSlider () {
   let settings = {
     dots: true,
     infinite: true,
-    speed: 1000,
+    speed: 500,
     slidesToShow: 1,
     slidesToScrole: 1,
+    autoplaySpeed: 5000,
     autoplay: true
   }
 
   return (
     <Carousel {...settings}>
-      <Wrap>
-        <img src="/images/slider-badging.jpg" alt="" />
-      </Wrap>
-      <Wrap>
-        <img src="/images/slider-badag.jpg" alt="" />
-      </Wrap>
-      <Wrap>
-        <img src="/images/slider-scales.jpg" alt="" />
-      </Wrap>
-      <Wrap>
-        <img src="/images/slider-scale.jpg" alt="" />
-      </Wrap>
+      <Wrap> <img src="/images/slider-badging.jpg" alt="" /> </Wrap>
+      <Wrap> <img src="/images/slider-badag.jpg" alt="" /> </Wrap>
+      <Wrap> <img src="/images/slider-scales.jpg" alt="" /> </Wrap>
+      <Wrap> <img src="/images/slider-scale.jpg" alt="" /> </Wrap>
     </Carousel>
   )
 }
