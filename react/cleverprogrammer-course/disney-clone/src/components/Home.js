@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import ImgSlider from './ImgSlider';
 import Viewers from './Viewers';
 import Movies from './Movies';
+import { db, auth, provider, storage } from '../firebase'
+import { getFirestore, collection, getDocs } from "firebase/firestore";
+
+
 
 function Home () {
+
+  useEffect(()=>{
+    const colMovie = collection(db, 'movies');
+    const snapshot = getDocs(colMovie);
+    console.log(snapshot)
+  }, [])
+
   return (
     <Container>
       <ImgSlider />
